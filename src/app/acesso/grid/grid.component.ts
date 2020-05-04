@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
+import { Hero } from 'src/app/hero.model';
 
 @Component({
   selector: 'app-grid',
@@ -7,12 +8,13 @@ import { BehaviorSubject, Subscription } from 'rxjs';
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnInit, OnDestroy {
-  @Input() nomeBehaviorSubject: BehaviorSubject<string>;
+  @Input() nomeBehaviorSubject: BehaviorSubject<Hero>;
   nomeBehaviorSubjectSubscription: Subscription;
-
+  hero: Hero;
   nomeCount=0;
 
-  constructor() { }
+  constructor(
+  ) { }
   ngOnDestroy(): void {
     if (this.nomeBehaviorSubjectSubscription)
       this.nomeBehaviorSubjectSubscription.unsubscribe();
@@ -21,6 +23,8 @@ export class GridComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.nomeBehaviorSubjectSubscription = this.nomeBehaviorSubject.subscribe(valor => {
       this.nomeCount++;
+      this.hero = valor;
+      console.log(this.hero);
     });
   }
 

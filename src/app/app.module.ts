@@ -8,6 +8,7 @@ import { FiltroComponent } from './acesso/filtro/filtro.component';
 import { GridComponent } from './acesso/grid/grid.component';
 import { AcessoComponent } from './acesso/acesso.component';
 import { TransacaoComponent } from './transacao/transacao.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TransacaoComponent } from './transacao/transacao.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

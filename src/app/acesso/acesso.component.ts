@@ -1,3 +1,4 @@
+import { Hero } from './../hero.model';
 import { BehaviorSubject } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./acesso.component.css']
 })
 export class AcessoComponent implements OnInit {
-  nomeBehaviorSubjectPai = new BehaviorSubject<string>("Felipe");
+  nomeBehaviorSubjectPai = new BehaviorSubject<Hero>(new Hero())
 
   constructor() { }
 
